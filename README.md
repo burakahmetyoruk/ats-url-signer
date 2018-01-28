@@ -7,6 +7,8 @@ Apache Traffic Server Url Signer 4j
 
 :lock: Java client to use Signed URL Plugin @Apache Traffic Server
 
+Implementation based on the [Signed URL Plugin](https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/url_sig.en.html)
+
 Usage
 --------
 
