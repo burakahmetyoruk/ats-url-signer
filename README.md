@@ -5,9 +5,7 @@ Apache Traffic Server Url Signer 4j
 [![Build Status](https://travis-ci.org/buraksarp/ats-url-signer.svg)](https://travis-ci.org/buraksarp/ats-url-signer)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-:lock: Java client to use Signed URL Plugin @Apache Traffic Server
-
-Implementation based on the [Signed URL Plugin](https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/url_sig.en.html)
+:lock: Java client to use Signed URL Plugin @Apache Traffic Server, implementation based on the [Signed URL Plugin](https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/url_sig.en.html)
 
 Usage
 --------
