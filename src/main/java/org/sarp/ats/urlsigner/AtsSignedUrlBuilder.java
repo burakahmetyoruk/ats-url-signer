@@ -58,6 +58,18 @@ public class AtsSignedUrlBuilder implements SignedUrlBuilder {
         Assert.notNull(timeUnit, "Time to live must be set");
         Assert.notNull(signatureAlgorithm, "Sign with must be set");
 
+        String signedUrl = getSignedUrl();
+
+        MacSigner macSigner = new MacSigner(this.signatureAlgorithm, this.secretKey);
+        byte[] digest = macSigner.sign(signedUrl.getBytes());
+
+        String token = this.hexlate(digest);
+        signedUrl += token;
+
+        return signedUrl;
+    }
+
+    private String getSignedUrl() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.getUrlPart(contentUrl, signingPart)).append("?");
         sb.append(Assert.hasText(clientIp) ? "C=" + clientIp + "&" : "");
@@ -66,13 +78,6 @@ public class AtsSignedUrlBuilder implements SignedUrlBuilder {
         sb.append("K=").append(this.keyIndex).append("&");
         sb.append("P=").append(this.signingPart.getValue()).append("&");
         sb.append("S=");
-
-        MacSigner macSigner = new MacSigner(this.signatureAlgorithm, this.secretKey);
-        byte[] digest = macSigner.sign(sb.toString().getBytes());
-
-        String token = this.hexlate(digest);
-        sb.append(token);
-
         return sb.toString();
     }
 

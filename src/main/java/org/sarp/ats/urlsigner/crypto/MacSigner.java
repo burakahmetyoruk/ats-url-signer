@@ -9,7 +9,7 @@ import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 
-public class MacSigner {
+public class MacSigner implements Signer {
 
     private final SignatureAlgorithm signatureAlgorithm;
     private final String secretKey;
@@ -31,9 +31,7 @@ public class MacSigner {
             mac = Mac.getInstance(signatureAlgorithm.getJcaName());
             Key key = new SecretKeySpec(secretKey.getBytes(), signatureAlgorithm.getJcaName());
             mac.init(key);
-        } catch (NoSuchAlgorithmException e) {
-            throw new SignatureException(e.getMessage());
-        } catch (InvalidKeyException e) {
+        } catch (NoSuchAlgorithmException | InvalidKeyException e) {
             throw new SignatureException(e.getMessage());
         }
 
