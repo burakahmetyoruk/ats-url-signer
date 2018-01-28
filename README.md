@@ -5,7 +5,7 @@ Apache Traffic Server Url Signer 4j
 [![Build Status](https://travis-ci.org/buraksarp/ats-url-signer.svg)](https://travis-ci.org/buraksarp/ats-url-signer)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-:lock: Java client to use Signed URL Plugin @Apache Traffic Server . Allows access to all the features that Signatures on URLs with Apache Traffic Server.
+:lock: Java client to use Signed URL Plugin @Apache Traffic Server
 
 Usage
 --------
@@ -26,10 +26,9 @@ compile 'org.sarp.ats.urlsigner:urlsigner:1.0'
 Supported Operations & Examples
 --------
 
-#### Login
+#### Sign URL
 
 ```java
-// Create signed URL
 String signedUrl = UrlSign.builder().setContentUrl("http://edge.sarp.net/public/magazine/object.pdf")
                 .setClientIp("1.2.3.4")
                 .setTimeToLive(2, TimeUnit.HOURS)
